@@ -41,11 +41,10 @@ Per-project install, GUI install paths (VS Code, Cursor, JetBrains), and verific
 | `coding-in-python` | uv, ruff, pytest, pathlib, notebook-vs-module discipline. |
 | `coding-in-r` | renv, tidyverse, lintr/styler, testthat, Bioconductor staples. |
 | `tabular-data` | Polars/DuckDB/Parquet defaults; when to leave pandas. |
-| `parallel-python` | Process vs. thread vs. async; when adding parallelism actually pays. |
 | `notebooks` | When to use a notebook, when to refactor, headless execution. |
 | `plotting` | Publication-quality ggplot2 / matplotlib defaults; colorblind-safe palettes. |
 | `starting-a-new-project` | Reproducible project layout (`data/`, `src/`, `notebooks/`, `results/`). |
-| `reproducible-envs` | renv, uv, Apptainer/Docker — pinning, lockfiles, restore. |
+| `reproducible-envs` | uv and renv lockfiles, pinning, restore-from-scratch checks. |
 | `code-review` | Self-review checklist before opening a PR. |
 | `code-overview` | How to read into an unfamiliar lab repo quickly. |
 | `web-scrape` | curl with curl_chrome, playwright-cli for JS-heavy sites, GEO/SRA APIs. |
