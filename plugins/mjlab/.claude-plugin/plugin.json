@@ -1,0 +1,6 @@
+{
+  "name": "mjlab",
+  "version": "0.1.0",
+  "description": "Miller-Jensen lab skills: Python, R, single-cell secretion, flow cytometry, live-cell imaging, stochastic gene expression, and domain primers.",
+  "author": { "name": "Miller-Jensen Lab" }
+}

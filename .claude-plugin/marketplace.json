@@ -1,0 +1,15 @@
+{
+  "name": "miller-jensen-lab",
+  "owner": { "name": "Miller-Jensen Lab" },
+  "description": "Skills for Python, R, and bioinformatics work in the Miller-Jensen lab at Yale.",
+  "metadata": {
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "mjlab",
+      "source": "./mjlab",
+      "description": "Miller-Jensen lab skills: Python, R, single-cell secretion, flow cytometry, live-cell imaging, stochastic gene expression, and domain primers."
+    }
+  ]
+}
