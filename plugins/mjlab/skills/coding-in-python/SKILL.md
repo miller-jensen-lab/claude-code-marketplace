@@ -8,7 +8,7 @@ related:
   - plotting
   - starting-a-new-project
   - reproducible-envs
-updated: 2026-05-13
+updated: 2026-05-14
 ---
 # Coding in Python
 
@@ -121,6 +121,39 @@ For shared data on the lab fileserver, put the mount point in a project `.env` f
 
 See [notebooks](../notebooks/SKILL.md) for full discipline.
 
+## Detecting code smells
+
+The 1000-line `main()`, the function with 12 parameters, the helper nobody calls — catchable with tools you already have. For bug-finding in a diff, see [code-review](../code-review/SKILL.md); this section is about structural drift.
+
+**Ruff** covers most smells once you enable the right rule groups in `pyproject.toml`:
+
+```toml
+[tool.ruff.lint]
+extend-select = [
+  "C90",   # mccabe — cyclomatic complexity
+  "PLR",   # pylint refactor — too-many-args, too-many-branches, etc.
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.pylint]
+max-args = 6
+max-branches = 12
+max-returns = 6
+max-statements = 50
+```
+
+These then run as part of `uv run ruff check`.
+
+For one-off audits (a new student's codebase, a stale repo), reach for:
+
+- `uvx radon cc -s -a lib.py` — per-function cyclomatic complexity, graded A–F with an average.
+- `uvx radon mi lib.py` — maintainability index (a composite of complexity, LOC, and Halstead volume).
+- `uvx vulture lib.py scripts/` — unused functions, imports, and arguments.
+
+`uvx` runs a tool without adding it to the project's dependencies — right for ad-hoc audits, not for CI.
+
 ## Checklist before committing
 
 - [ ] `uv run ruff format . && uv run ruff check .` clean
@@ -138,3 +171,6 @@ See [notebooks](../notebooks/SKILL.md) for full discipline.
 - [Python `pathlib`](https://docs.python.org/3/library/pathlib.html)
 - [`argparse` tutorial](https://docs.python.org/3/howto/argparse.html)
 - [`click` documentation](https://click.palletsprojects.com/) — when you outgrow argparse
+- [Ruff rule index](https://docs.astral.sh/ruff/rules/) — the `C90` and `PLR` groups are the smell catchers
+- [`radon`](https://radon.readthedocs.io/) — complexity and maintainability metrics
+- [`vulture`](https://github.com/jendrikseipp/vulture) — dead-code detector
