@@ -16,26 +16,7 @@ You need [Claude Code](https://docs.claude.com/en/docs/claude-code) installed. Y
 /plugin install mjlab@miller-jensen-lab
 ```
 
-Please *also* install the official Anthropic Life Sciences marketplace for the bioinformatics skills it ships that we don't duplicate. Note that `/plugin marketplace add` only registers the marketplace — you then install each plugin individually:
-
-```
-/plugin marketplace add anthropics/life-sciences
-/plugin install single-cell-rna-qc@life-sciences
-/plugin install scvi-tools@life-sciences
-/plugin install nextflow-development@life-sciences
-/plugin install biorender@life-sciences
-```
-
-What each one does:
-
-| Plugin | Why install it |
-|---|---|
-| `single-cell-rna-qc` | scverse-best-practices QC (MAD-based filtering, mito/ribo/hemoglobin) for `.h5ad` / 10x `.h5`. |
-| `scvi-tools` | Single-cell deep learning: batch integration, scANVI label transfer, latent representations. |
-| `nextflow-development` | Run nf-core/rnaseq, sarek, atacseq, fetchngs without writing the pipeline yourself. |
-| `biorender` | Generate schematic figures for papers and grants. |
-
-Optional: `scientific-problem-selection` (Fischbach-Walsh framework, useful for new students). The life-sciences marketplace also ships pharma/clinical/drug-discovery plugins (`chembl`, `owkin`, `cortellis`, `clinical-trials`, `medidata`, etc.) that aren't relevant to a basic-research lab — skip them. Their `pubmed` / `biorxiv` / `consensus` plugins overlap with our `literature-search` and `local-lit-search` — we keep ours (scriptable curl-based REST + reproducible local FTS5 corpus); skip those.
+Aside: Anthropic ships a [life-sciences marketplace](https://github.com/anthropics/life-sciences) with MCP connectors (PubMed, bioRxiv, Consensus, BioRender, etc.) and a few skills (`single-cell-rna-qc`, `scvi-tools`, `nextflow-development`). Browse it if you want — most of it is pharma/clinical/drug-discovery and not central to a basic-research lab, and the relevant pieces (lit search, scRNA-seq QC) we cover ourselves with calibration tuned for the lab.
 
 Update later with `/plugin marketplace update miller-jensen-lab` (and similarly for `life-sciences`).
 
@@ -62,6 +43,7 @@ Update later with `/plugin marketplace update miller-jensen-lab` (and similarly 
 | `bio-data-hygiene` | Sample sheets as source of truth, naming convention, donor anonymization, GEO/SRA prep. |
 | `bio-stats` | Pseudobulk for scRNA-seq DE, mixed models for matched donors, FDR, effect sizes. |
 | `plotting` | Publication-quality plotting (Python + R, in depth) — Okabe-Ito / viridis defaults, journal-spec dimensions, SuperPlot recipe, common-mistake catalog. |
+| `scrna-qc` | Per-sample QC for droplet scRNA-seq — MAD filtering, scDblFinder doublets, SoupX/CellBender ambient RNA, macrophage-specific common mistakes. |
 
 ## Skills planned
 
