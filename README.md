@@ -9,30 +9,24 @@ Two pillars:
 
 ## Companion marketplace
 
-For generic bioinformatics skills (single-cell QC, scVI, 10x Genomics, Nextflow, PubMed/bioRxiv search), install Anthropic's life-sciences marketplace alongside this one. We deliberately don't duplicate those skills.
-
-```
-/plugin marketplace add anthropics/life-sciences
-```
 
 This marketplace focuses on what's specific to the lab's work — single-cell secretion, stochastic gene-expression models, live-cell reporter imaging, cell-cell communication inference, flow cytometry, smFISH — plus general Python/R hygiene tuned for analysis (not web apps or CLI tools).
 
-## Status
-
-Early. The marketplace is in active development, not yet pushed to GitHub. Nineteen skills are shipped; the rest are planned. Install instructions below are forward-looking — they will work once the repo is pushed.
-
 ## Install
 
-You need [Claude Code](https://docs.claude.com/en/docs/claude-code) installed. Inside Claude Code:
+You need [Claude Code](https://docs.claude.com/en/docs/claude-code) installed. You can install either the Desktop or the command line version. Inside Claude Code:
 
 ```
 /plugin marketplace add miller-jensen-lab/claude-code-marketplace
 /plugin install mjlab@miller-jensen-lab
 ```
 
-Update later with `/plugin marketplace update miller-jensen-lab`.
+Please *also* install the official Anthropic Life Sciences marketplace for generic bioinformatics skills (single-cell QC, scVI, 10x Genomics, Nextflow, PubMed/bioRxiv search). We deliberately don't duplicate those skills.
 
-Per-project install, GUI install paths (VS Code, Cursor, JetBrains), and verification — see the [Yale SOM HPC marketplace README](https://github.com/yale-som-hpc/claude-code-marketplace#install) for the full menu; the steps are identical.
+```
+/plugin marketplace add anthropics/life-sciences
+```
+Update later with `/plugin marketplace update miller-jensen-lab`.
 
 ## Skills shipped today
 
