@@ -19,7 +19,7 @@ This marketplace focuses on what's specific to the lab's work — single-cell se
 
 ## Status
 
-Early. The marketplace is in active development, not yet pushed to GitHub. Eighteen skills are shipped; the rest are planned. Install instructions below are forward-looking — they will work once the repo is pushed.
+Early. The marketplace is in active development, not yet pushed to GitHub. Nineteen skills are shipped; the rest are planned. Install instructions below are forward-looking — they will work once the repo is pushed.
 
 ## Install
 
@@ -56,19 +56,9 @@ Per-project install, GUI install paths (VS Code, Cursor, JetBrains), and verific
 | `stochastic-gene-expression` | Telegraph / Beta-Poisson / NB fits, GillesPy2 SSA, FSP for the CME, txburst. |
 | `bio-data-hygiene` | Sample sheets as source of truth, naming convention, donor anonymization, GEO/SRA prep. |
 | `bio-stats` | Pseudobulk for scRNA-seq DE, mixed models for matched donors, FDR, effect sizes. |
+| `plotting` | Publication-quality plotting (Python + R, in depth) — Okabe-Ito / viridis defaults, journal-spec dimensions, SuperPlot recipe, common-mistake catalog. |
 
 ## Skills planned
-
-**General programming** — Python, R, and analysis hygiene tuned for lab work.
-
-| Skill | Purpose |
-|---|---|
-| `overview` | Mental model, two-pillar manifesto, pointers into other skills. |
-| `notebooks` | When to use a notebook, when to refactor, headless execution. |
-| `plotting` | Publication-quality ggplot2 / matplotlib defaults; colorblind-safe palettes. |
-| `starting-a-new-project` | Reproducible project layout (`data/`, `notebooks/`, `scripts/`, `results/`). |
-| `reproducible-envs` | uv and renv lockfiles, pinning, restore-from-scratch checks. |
-| `web-scrape` | curl with curl_chrome, playwright-cli for JS-heavy sites, GEO/SRA APIs. |
 
 **Domain primers** — onboarding maps for an agent that needs to come up to speed.
 
