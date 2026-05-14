@@ -39,6 +39,8 @@ Per-project install, GUI install paths (VS Code, Cursor, JetBrains), and verific
 | Skill | Purpose |
 |---|---|
 | `coding-in-python` | uv, ruff, pathlib, notebook-vs-script discipline, portable paths. |
+| `coding-in-r` | renv, tidyverse, `here::here()` for portable paths, Bioconductor staples (DESeq2/Seurat/flowCore). |
+| `tabular-data` | DuckDB SQL on CSV/XLSX/Parquet as the default; qsv, xlsx2csv, Polars for the cases where DuckDB isn't ideal. |
 | `programming-and-coding` | Cross-language coding philosophy: KISS, smoke tests on real data, working code is the documentation. |
 | `code-overview` | Five-minute walk to orient inside an unfamiliar lab repo before editing. |
 | `code-review` | Self-review and AI review tuned for lab landmines (hardcoded paths, raw data staged, missing seeds). |
@@ -54,8 +56,6 @@ Per-project install, GUI install paths (VS Code, Cursor, JetBrains), and verific
 | Skill | Purpose |
 |---|---|
 | `overview` | Mental model, two-pillar manifesto, pointers into other skills. |
-| `coding-in-r` | renv, tidyverse, lintr/styler, testthat, Bioconductor staples. |
-| `tabular-data` | Polars/DuckDB/Parquet defaults; when to leave pandas. |
 | `notebooks` | When to use a notebook, when to refactor, headless execution. |
 | `plotting` | Publication-quality ggplot2 / matplotlib defaults; colorblind-safe palettes. |
 | `starting-a-new-project` | Reproducible project layout (`data/`, `notebooks/`, `scripts/`, `results/`). |
