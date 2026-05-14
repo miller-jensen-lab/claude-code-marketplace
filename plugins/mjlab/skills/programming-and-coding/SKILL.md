@@ -32,7 +32,7 @@ The audience is bench scientists writing analysis code, not software engineers s
 ## How you work on a task
 
 1. Read the request and any context (`CLAUDE.md`, `README`, lab notebook entries).
-2. Skim the existing code in the area you'll touch. Match its style.
+2. Skim the existing code in the area you'll touch. Match its style unless it violates best practices here.
 3. Make the smallest change that could work.
 4. Run the analysis on a real-data slice — does the output make sense?
 5. Clean up dead code and stale comments before moving on.
