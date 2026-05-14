@@ -7,11 +7,6 @@ Two pillars:
 1. **Be reproducible.** Lockfiles, seeds, raw-data-never-edited, plain-text everything.
 2. **Be skillful.** Get the analysis done correctly and figure-worthy on the first try.
 
-## Companion marketplace
-
-
-This marketplace focuses on what's specific to the lab's work — single-cell secretion, stochastic gene-expression models, live-cell reporter imaging, cell-cell communication inference, flow cytometry, smFISH — plus general Python/R hygiene tuned for analysis (not web apps or CLI tools).
-
 ## Install
 
 You need [Claude Code](https://docs.claude.com/en/docs/claude-code) installed. You can install either the Desktop or the command line version. Inside Claude Code:
@@ -21,15 +16,13 @@ You need [Claude Code](https://docs.claude.com/en/docs/claude-code) installed. Y
 /plugin install mjlab@miller-jensen-lab
 ```
 
-Please *also* install the official Anthropic Life Sciences marketplace for generic bioinformatics skills (single-cell QC, scVI, Nextflow, PubMed/bioRxiv search). We deliberately don't duplicate those skills. Note that `/plugin marketplace add` only registers the marketplace — you then install each plugin you want individually:
+Please *also* install the official Anthropic Life Sciences marketplace for the bioinformatics skills it ships that we don't duplicate. Note that `/plugin marketplace add` only registers the marketplace — you then install each plugin individually:
 
 ```
 /plugin marketplace add anthropics/life-sciences
 /plugin install single-cell-rna-qc@life-sciences
 /plugin install scvi-tools@life-sciences
 /plugin install nextflow-development@life-sciences
-/plugin install pubmed@life-sciences
-/plugin install biorxiv@life-sciences
 /plugin install biorender@life-sciences
 ```
 
@@ -37,14 +30,12 @@ What each one does:
 
 | Plugin | Why install it |
 |---|---|
-| `single-cell-rna-qc` | scverse-best-practices QC for 10x / Smart-seq data. |
+| `single-cell-rna-qc` | scverse-best-practices QC (MAD-based filtering, mito/ribo/hemoglobin) for `.h5ad` / 10x `.h5`. |
 | `scvi-tools` | Single-cell deep learning: batch integration, scANVI label transfer, latent representations. |
 | `nextflow-development` | Run nf-core/rnaseq, sarek, atacseq, fetchngs without writing the pipeline yourself. |
-| `pubmed` | MCP-form PubMed search; complements our `literature-search` skill. |
-| `biorxiv` | Preprint search MCP; complements `literature-search`. |
 | `biorender` | Generate schematic figures for papers and grants. |
 
-Optional add-ons: `consensus` (AI evidence synthesis across peer-reviewed papers), `scientific-problem-selection` (Fischbach-Walsh framework for new students). The life-sciences marketplace also ships pharma/clinical/drug-discovery plugins (`chembl`, `owkin`, `cortellis`, `clinical-trials`, `medidata`, etc.) that aren't relevant to a basic-research lab — skip them.
+Optional: `scientific-problem-selection` (Fischbach-Walsh framework, useful for new students). The life-sciences marketplace also ships pharma/clinical/drug-discovery plugins (`chembl`, `owkin`, `cortellis`, `clinical-trials`, `medidata`, etc.) that aren't relevant to a basic-research lab — skip them. Their `pubmed` / `biorxiv` / `consensus` plugins overlap with our `literature-search` and `local-lit-search` — we keep ours (scriptable curl-based REST + reproducible local FTS5 corpus); skip those.
 
 Update later with `/plugin marketplace update miller-jensen-lab` (and similarly for `life-sciences`).
 
