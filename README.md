@@ -19,7 +19,7 @@ This marketplace focuses on what's specific to the lab's work — single-cell se
 
 ## Status
 
-Early. The marketplace is in active development, not yet pushed to GitHub. Five skills are shipped; the rest are planned. Install instructions below are forward-looking — they will work once the repo is pushed.
+Early. The marketplace is in active development, not yet pushed to GitHub. Eighteen skills are shipped; the rest are planned. Install instructions below are forward-looking — they will work once the repo is pushed.
 
 ## Install
 
@@ -48,6 +48,14 @@ Per-project install, GUI install paths (VS Code, Cursor, JetBrains), and verific
 | `zotero` | Use the Zotero local API to search, cite, and export bibliographies; manuscript citekey workflow. |
 | `literature-search` | Live-oracle search across PubMed/OpenAlex/Crossref/Europe PMC/bioRxiv/Semantic Scholar/arXiv/Unpaywall + Ai2 Asta. |
 | `local-lit-search` | Build a reproducible local SQLite FTS5 corpus from PubMed/PMC; answer questions with grounded `[PMID:…]` citations. Ships uv-PEP-723 scripts with download safeguards. |
+| `cell-cell-communication` | Ligand-receptor inference pointer skill — LIANA consensus, CellChat v2, NicheNet. |
+| `single-cell-secretion` | Microfluidic multiplex cytokine analysis; polyfunctionality / PSI; thin-ecosystem honesty. |
+| `flow-cytometry` | flowCore/openCyto/ggcyto cytoverse (R primary), FlowKit (Python); reproducible gating, transforms, compensation. |
+| `live-cell-imaging` | Reporter time-lapse (NF-κB / IRF / STAT) — bioio, cellpose, btrack, TrackMate, napari. |
+| `smfish` | Per-cell transcript counts — big-fish, FISH-quant v2, RS-FISH; feeds bursting models. |
+| `stochastic-gene-expression` | Telegraph / Beta-Poisson / NB fits, GillesPy2 SSA, FSP for the CME, txburst. |
+| `bio-data-hygiene` | Sample sheets as source of truth, naming convention, donor anonymization, GEO/SRA prep. |
+| `bio-stats` | Pseudobulk for scRNA-seq DE, mixed models for matched donors, FDR, effect sizes. |
 
 ## Skills planned
 
@@ -61,19 +69,6 @@ Per-project install, GUI install paths (VS Code, Cursor, JetBrains), and verific
 | `starting-a-new-project` | Reproducible project layout (`data/`, `notebooks/`, `scripts/`, `results/`). |
 | `reproducible-envs` | uv and renv lockfiles, pinning, restore-from-scratch checks. |
 | `web-scrape` | curl with curl_chrome, playwright-cli for JS-heavy sites, GEO/SRA APIs. |
-
-**Lab-specific analyses** — gap-filling skills, mostly first-of-kind as Claude Code skills.
-
-| Skill | Purpose |
-|---|---|
-| `cell-cell-communication` | CellChat / NicheNet / CellPhoneDB; ligand-receptor scoring. |
-| `single-cell-secretion` | Microfluidic multiplex cytokine analysis; polyfunctionality scoring. |
-| `flow-cytometry` | FCS handling, compensation, biexponential transforms, reproducible gating. |
-| `live-cell-imaging` | Reporter time-lapse, single-cell tracking, fold-change detection. |
-| `smfish` | Spot detection, per-cell transcript counts, fitting to bursting models. |
-| `stochastic-gene-expression` | Telegraph model, Gillespie/CME simulation, MLE on mRNA distributions. |
-| `bio-data-hygiene` | Sample sheets as source of truth, GEO/SRA submission prep, naming. |
-| `bio-stats` | Multiple testing, batch effects, mixed models for repeated-measures data. |
 
 **Domain primers** — onboarding maps for an agent that needs to come up to speed.
 
