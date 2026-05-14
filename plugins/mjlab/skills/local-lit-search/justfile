@@ -1,0 +1,12 @@
+set dotenv-load
+
+default:
+    @just --list
+
+# First-time setup — create database and directories
+setup:
+    uv run scripts/setup.py
+
+# Run any script under scripts/ (e.g. `just run search_pubmed "NF-kB macrophage"`)
+run script *args:
+    uv run scripts/{{script}}.py {{args}}

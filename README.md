@@ -47,6 +47,10 @@ Per-project install, GUI install paths (VS Code, Cursor, JetBrains), and verific
 | `reproducible-envs` | uv and renv lockfiles, pinning, restore-from-scratch checks. |
 | `code-review` | Self-review checklist before opening a PR. |
 | `code-overview` | How to read into an unfamiliar lab repo quickly. |
+| `using-git-and-github` | Agent judgment for branches, commits, repo naming, big-file pushback, and the lab org. |
+| `zotero` | Use the Zotero local API to search, cite, and export bibliographies; manuscript citekey workflow. |
+| `literature-search` | Live-oracle search across PubMed/OpenAlex/Crossref/Europe PMC/bioRxiv/Semantic Scholar/arXiv/Unpaywall + Ai2 Asta. |
+| `local-lit-search` | Build a reproducible local SQLite FTS5 corpus from PubMed/PMC; answer questions with grounded `[PMID:…]` citations. |
 | `web-scrape` | curl with curl_chrome, playwright-cli for JS-heavy sites, GEO/SRA APIs. |
 
 **Lab-specific analyses** — gap-filling skills, mostly first-of-kind as Claude Code skills.
