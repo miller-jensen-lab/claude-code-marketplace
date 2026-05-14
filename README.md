@@ -21,12 +21,32 @@ You need [Claude Code](https://docs.claude.com/en/docs/claude-code) installed. Y
 /plugin install mjlab@miller-jensen-lab
 ```
 
-Please *also* install the official Anthropic Life Sciences marketplace for generic bioinformatics skills (single-cell QC, scVI, 10x Genomics, Nextflow, PubMed/bioRxiv search). We deliberately don't duplicate those skills.
+Please *also* install the official Anthropic Life Sciences marketplace for generic bioinformatics skills (single-cell QC, scVI, Nextflow, PubMed/bioRxiv search). We deliberately don't duplicate those skills. Note that `/plugin marketplace add` only registers the marketplace — you then install each plugin you want individually:
 
 ```
 /plugin marketplace add anthropics/life-sciences
+/plugin install single-cell-rna-qc@life-sciences
+/plugin install scvi-tools@life-sciences
+/plugin install nextflow-development@life-sciences
+/plugin install pubmed@life-sciences
+/plugin install biorxiv@life-sciences
+/plugin install biorender@life-sciences
 ```
-Update later with `/plugin marketplace update miller-jensen-lab`.
+
+What each one does:
+
+| Plugin | Why install it |
+|---|---|
+| `single-cell-rna-qc` | scverse-best-practices QC for 10x / Smart-seq data. |
+| `scvi-tools` | Single-cell deep learning: batch integration, scANVI label transfer, latent representations. |
+| `nextflow-development` | Run nf-core/rnaseq, sarek, atacseq, fetchngs without writing the pipeline yourself. |
+| `pubmed` | MCP-form PubMed search; complements our `literature-search` skill. |
+| `biorxiv` | Preprint search MCP; complements `literature-search`. |
+| `biorender` | Generate schematic figures for papers and grants. |
+
+Optional add-ons: `consensus` (AI evidence synthesis across peer-reviewed papers), `scientific-problem-selection` (Fischbach-Walsh framework for new students). The life-sciences marketplace also ships pharma/clinical/drug-discovery plugins (`chembl`, `owkin`, `cortellis`, `clinical-trials`, `medidata`, etc.) that aren't relevant to a basic-research lab — skip them.
+
+Update later with `/plugin marketplace update miller-jensen-lab` (and similarly for `life-sciences`).
 
 ## Skills shipped today
 
