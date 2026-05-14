@@ -9,16 +9,27 @@ Two pillars:
 
 ## Install
 
-You need [Claude Code](https://docs.claude.com/en/docs/claude-code) installed. You can install either the Desktop or the command line version. Inside Claude Code:
+You need [Claude Code](https://docs.claude.com/en/docs/claude-code) installed. Inside Claude Code:
 
 ```
 /plugin marketplace add miller-jensen-lab/claude-code-marketplace
 /plugin install mjlab@miller-jensen-lab
 ```
 
-Aside: Anthropic ships a [life-sciences marketplace](https://github.com/anthropics/life-sciences) with MCP connectors (PubMed, bioRxiv, Consensus, BioRender, etc.) and a few skills (`single-cell-rna-qc`, `scvi-tools`, `nextflow-development`). Browse it if you want — most of it is pharma/clinical/drug-discovery and not central to a basic-research lab, and the relevant pieces (lit search, scRNA-seq QC) we cover ourselves with calibration tuned for the lab.
+Update later with `/plugin marketplace update miller-jensen-lab`.
 
-Update later with `/plugin marketplace update miller-jensen-lab` (and similarly for `life-sciences`).
+Aside: Anthropic ships a [life-sciences marketplace](https://github.com/anthropics/life-sciences) with various MCP connectors and skills. Most of it targets pharma/clinical workflows; the few pieces relevant to a basic-research lab we cover ourselves with calibration tuned to the lab. Browse it if curious.
+
+## Using it
+
+You don't invoke skills directly. Claude Code loads them automatically when your conversation matches their triggers — file types you mention, libraries you ask about, analysis modalities you're working on. Just talk to it normally:
+
+- *"Help me set up a new project for an RNA-seq experiment."* — loads `coding-in-python`, `bio-data-hygiene`, `tabular-data`.
+- *"I have a `.fcs` file from yesterday's flow run — how do I gate this reproducibly?"* — loads `flow-cytometry`.
+- *"My UMAP looks weird. Walk me through QC on this 10x dataset."* — loads `scrna-qc`, `bio-stats`.
+- *"Review my volcano plot script before I commit."* — loads `plotting`, `code-review`.
+
+The skills give the agent shared reference material; the agent still does the work and can still make mistakes — check its output.
 
 ## Skills shipped today
 
@@ -44,17 +55,6 @@ Update later with `/plugin marketplace update miller-jensen-lab` (and similarly 
 | `bio-stats` | Pseudobulk for scRNA-seq DE, mixed models for matched donors, FDR, effect sizes. |
 | `plotting` | Publication-quality plotting (Python + R, in depth) — Okabe-Ito / viridis defaults, journal-spec dimensions, SuperPlot recipe, common-mistake catalog. |
 | `scrna-qc` | Per-sample QC for droplet scRNA-seq — MAD filtering, scDblFinder doublets, SoupX/CellBender ambient RNA, macrophage-specific common mistakes. |
-
-## Skills planned
-
-**Domain primers** — onboarding maps for an agent that needs to come up to speed.
-
-| Skill | Purpose |
-|---|---|
-| `macrophage-immunology` | M1/M2 axes, TLR/TNF/IFN signaling, TAMs, network-motif framing. |
-| `hiv-latency` | Reservoir biology, reactivation strategies, reporter systems. |
-| `transcriptional-bursting` | Telegraph model intuition, burst size vs. frequency, key papers. |
-| `systems-immunology` | Heterogeneity, single-cell methods, cell-cell communication. |
 
 ## Repository layout
 
