@@ -17,6 +17,10 @@ For generic bioinformatics skills (single-cell QC, scVI, 10x Genomics, Nextflow,
 
 This marketplace focuses on what's specific to the lab's work — single-cell secretion, stochastic gene-expression models, live-cell reporter imaging, cell-cell communication inference, flow cytometry, smFISH — plus general Python/R hygiene tuned for analysis (not web apps or CLI tools).
 
+## Status
+
+Early. The marketplace is in active development, not yet pushed to GitHub. Five skills are shipped; the rest are planned. Install instructions below are forward-looking — they will work once the repo is pushed.
+
 ## Install
 
 You need [Claude Code](https://docs.claude.com/en/docs/claude-code) installed. Inside Claude Code:
@@ -30,27 +34,32 @@ Update later with `/plugin marketplace update miller-jensen-lab`.
 
 Per-project install, GUI install paths (VS Code, Cursor, JetBrains), and verification — see the [Yale SOM HPC marketplace README](https://github.com/yale-som-hpc/claude-code-marketplace#install) for the full menu; the steps are identical.
 
-## What's in the `mjlab` plugin
+## Skills shipped today
+
+| Skill | Purpose |
+|---|---|
+| `coding-in-python` | uv, ruff, pathlib, notebook-vs-script discipline, portable paths. |
+| `programming-and-coding` | Cross-language coding philosophy: KISS, smoke tests on real data, working code is the documentation. |
+| `code-overview` | Five-minute walk to orient inside an unfamiliar lab repo before editing. |
+| `code-review` | Self-review and AI review tuned for lab landmines (hardcoded paths, raw data staged, missing seeds). |
+| `using-git-and-github` | Agent judgment for branches, commits, repo naming, big-file pushback, and the lab org. |
+| `zotero` | Use the Zotero local API to search, cite, and export bibliographies; manuscript citekey workflow. |
+| `literature-search` | Live-oracle search across PubMed/OpenAlex/Crossref/Europe PMC/bioRxiv/Semantic Scholar/arXiv/Unpaywall + Ai2 Asta. |
+| `local-lit-search` | Build a reproducible local SQLite FTS5 corpus from PubMed/PMC; answer questions with grounded `[PMID:…]` citations. Ships uv-PEP-723 scripts with download safeguards. |
+
+## Skills planned
 
 **General programming** — Python, R, and analysis hygiene tuned for lab work.
 
 | Skill | Purpose |
 |---|---|
 | `overview` | Mental model, two-pillar manifesto, pointers into other skills. |
-| `programming-and-coding` | Cross-language coding philosophy (KISS, small functions, smoke tests). |
-| `coding-in-python` | uv, ruff, pytest, pathlib, notebook-vs-module discipline. |
 | `coding-in-r` | renv, tidyverse, lintr/styler, testthat, Bioconductor staples. |
 | `tabular-data` | Polars/DuckDB/Parquet defaults; when to leave pandas. |
 | `notebooks` | When to use a notebook, when to refactor, headless execution. |
 | `plotting` | Publication-quality ggplot2 / matplotlib defaults; colorblind-safe palettes. |
-| `starting-a-new-project` | Reproducible project layout (`data/`, `src/`, `notebooks/`, `results/`). |
+| `starting-a-new-project` | Reproducible project layout (`data/`, `notebooks/`, `scripts/`, `results/`). |
 | `reproducible-envs` | uv and renv lockfiles, pinning, restore-from-scratch checks. |
-| `code-review` | Self-review checklist before opening a PR. |
-| `code-overview` | How to read into an unfamiliar lab repo quickly. |
-| `using-git-and-github` | Agent judgment for branches, commits, repo naming, big-file pushback, and the lab org. |
-| `zotero` | Use the Zotero local API to search, cite, and export bibliographies; manuscript citekey workflow. |
-| `literature-search` | Live-oracle search across PubMed/OpenAlex/Crossref/Europe PMC/bioRxiv/Semantic Scholar/arXiv/Unpaywall + Ai2 Asta. |
-| `local-lit-search` | Build a reproducible local SQLite FTS5 corpus from PubMed/PMC; answer questions with grounded `[PMID:…]` citations. |
 | `web-scrape` | curl with curl_chrome, playwright-cli for JS-heavy sites, GEO/SRA APIs. |
 
 **Lab-specific analyses** — gap-filling skills, mostly first-of-kind as Claude Code skills.
