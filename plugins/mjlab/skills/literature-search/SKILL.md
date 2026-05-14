@@ -122,32 +122,26 @@ curl -sS "https://api.unpaywall.org/v2/10.1038/s41586-024-12345?email=user@examp
 
 Use this when the user wants a paper they don't have institutional access to. The response's `best_oa_location.url_for_pdf` is what you fetch.
 
-## Ai2 Asta — agentic synthesis (optional)
+## Ai2 Asta — agentic synthesis (optional, MCP only)
 
-Asta is the Allen Institute's free agentic literature service over 200M+ papers. It plans multi-step searches, follows citations, and returns synthesized answers with grounded citations.
+Asta is the Allen Institute's agentic literature service over the Semantic Scholar corpus (200M+ papers). It plans multi-step searches, follows citations, and returns grounded synthesized answers.
 
-Two integration paths. The agent should **default to the REST API**. On first use of Asta in a session, ask the user once: *"Asta also ships an MCP server — would you like to install it for richer tool integration, or keep using the REST API?"* Honor whatever they say and don't re-ask.
+**Asta has no public REST API.** It's exposed as an MCP server only. There is no plain `curl` path; an earlier `api.allenai.org` REST endpoint never existed publicly. If the user wants Asta:
 
-**REST**:
-
-```bash
-# Scientific Corpus Tool — hybrid (sparse + dense) full-text search
-curl -sS -X POST 'https://api.allenai.org/v1/asta/search' \
-  -H 'Content-Type: application/json' \
-  -d '{"query":"TNF transcriptional bursting macrophage","retrieval":"hybrid","limit":20}'
+```
+# 1. Request an API key (free, requires form submission):
+#    https://share.hsforms.com/1L4hUh20oT3mu8iXJQMV77w3ioxm
+#
+# 2. Add the MCP server to Claude Code's config; base URL:
+#    https://asta-tools.allen.ai/mcp/v1
+#    auth header: x-api-key: <YOUR_KEY>
+#
+# Details and current tool list: https://allenai.org/asta/resources/mcp
 ```
 
-(Endpoint subject to change — see <https://allenai.org/asta/resources/mcp> for current shapes.)
+Once wired up, Asta tools (`search_papers_by_relevance`, `search_paper_by_title`, `snippet_search`, `get_papers`, `get_citations`, …) appear natively in the agent's tool list. Use them like any other tool.
 
-**MCP** (if user opted in):
-
-```bash
-# install the MCP server (one-time)
-uv tool install asta-mcp
-# then add to claude code's MCP config — see https://allenai.org/asta/resources/mcp
-```
-
-After install, Asta's tools (`asta_search`, `asta_synthesize`, etc.) appear natively in the agent's tool list. Use them like any other tool.
+If the user doesn't want to deal with an API key and MCP setup, **use Semantic Scholar instead** (below) — Asta is built on top of it, and Semantic Scholar's `influentialCitationCount` field gives most of the value with no auth. For full-text body search (not just titles/abstracts), use Europe PMC.
 
 **Verification rule**: Asta's returned citations are *usually* real but sometimes fabricated or mis-attributed. Before quoting an Asta-returned PMID/DOI in a manuscript or analysis, resolve it via Crossref or PubMed (`esummary.fcgi?db=pubmed&id=…`) and confirm title + authors match.
 
