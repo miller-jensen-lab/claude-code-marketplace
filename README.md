@@ -31,7 +31,7 @@ You don't invoke skills directly. Claude Code loads them automatically when your
 
 The skills give the agent shared reference material; the agent still does the work and can still make mistakes — check its output.
 
-## Skills shipped today
+## Skills
 
 | Skill | Purpose |
 |---|---|
@@ -71,7 +71,11 @@ A skill is a single `SKILL.md` with YAML frontmatter and a directive playbook bo
 
 ## Contributing
 
-Most skills are short — a fix or new section is usually a one-PR change. If you're not ready to write a fix, file an issue.
+If a skill is wrong, missing a step, or could use a lab-specific example, contribute. The mechanics:
+
+- **Easiest:** ask your agent. Tell Claude Code "fix the bit in `flow-cytometry` about biexponential cofactors — here's what's wrong" and it can edit the file, commit it on a branch, push, and open a pull request (a PR — GitHub's way of proposing a change for review) against this repo. You don't have to run `git` yourself.
+- **If you're not ready to write the fix:** file an issue. "This skill says X but the right answer is Y" is enough.
+- Kathryn and Kyle have to approve before changes merge into `main`. Anyone in the lab can push to a branch and open the PR.
 
 ### Skill acceptance criteria
 
